@@ -8,7 +8,11 @@
     - [Open iTab](#open-itab)
     - [Open iTab on invoice page](#open-itab-on-invoice-page)
     - [Invoice API](#invoice-api)
+      - [Get invoice](#get-invoice)
+      - [Subscribe to invoices load event](#subscribe-to-invoices-load-event)
+      - [Subscribe to invoices change event](#subscribe-to-invoices-change-event)
     - [Hiding iTab](#hiding-itab)
+      - [Showing iTab after hidden](#showing-itab-after-hidden)
     - [Move to Production](#move-to-production)
 
 
@@ -55,7 +59,7 @@ lendica.open(invoiceId);  // invoiceId: unique identifier of the invoice in part
 
 ### Invoice API
 
-> #### Get invoice
+#### Get invoice
 
 ```javascript
 lendica.invoices.getById(invoiceId); // invoiceId: unique identifier of the invoice in partner system
@@ -77,7 +81,7 @@ Invoice data schema:
 }
 ```
 
-> #### Subscribe to invoices load event
+#### Subscribe to invoices load event
 
 ```javascript
 lendica.invoices.onLoad(() => {});
@@ -86,7 +90,7 @@ lendica.invoices.onLoad(() => {});
 Passed callback is going to be called when invoices finished loading. Not called for invoice updates.
 Returns callback to dispose subscription.
 
-> #### Subscribe to invoices change event
+#### Subscribe to invoices change event
 
 ```javascript
 lendica.invoices.onChange(() => {});
@@ -103,7 +107,7 @@ To allow a customer to hide the iTab from your web application you may call the 
 lendica.destroy();
 ```
 
-> #### Showing iTab after hidden
+#### Showing iTab after hidden
 
 To allow the customer to unhide the iTab, you may simply call the init function again with the parameters discussed above.
 
