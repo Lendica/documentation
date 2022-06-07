@@ -7,6 +7,8 @@
     - [Initialization](#initialization)
     - [Open iTab](#open-itab)
     - [Open iTab on invoice page](#open-itab-on-invoice-page)
+    - [PayLater API](#paylater-api)
+      - [Open PayLater in app](#open-paylater-in-app)
     - [Invoice API](#invoice-api)
       - [Get invoice](#get-invoice)
       - [Subscribe to invoices load event](#subscribe-to-invoices-load-event)
@@ -56,6 +58,25 @@ lendica.open();
 ```javascript
 lendica.open(invoiceId);  // invoiceId: unique identifier of the invoice in partner system
 ```
+
+
+### PayLater API
+
+#### Open PayLater in app
+
+```javascript
+lendica.paylater.openInApp(url, onComplete)
+```
+
+url schema for invoice PayLater
+```javascript
+let url = `{LENDICA_BACKEND_URL}/api/v1/pod/paylater/partner_paylater_redirect/?partner={PARTNER_NAME}&invoice_id={INVOICE_UUID}`
+```
+
+
+Passed in url is url of in app popup window that will be opened.
+Passed onComplete callback will be called when popup is closed.
+
 
 ### Invoice API
 
