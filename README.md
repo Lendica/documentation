@@ -1,38 +1,39 @@
 # Lendica Documentation
 
 - [Lendica Documentation](#lendica-documentation)
-  - [iTab Guide](#itab-guide)
+  - [iBranch Guide](#ibranch-guide)
     - [Installation](#installation)
       - [Include IIFE bundle in index.html](#include-iife-bundle-in-indexhtml)
     - [Initialization](#initialization)
-    - [Open iTab](#open-itab)
-    - [Open iTab on invoice page](#open-itab-on-invoice-page)
+    - [Open iBranch](#open-ibranch)
+    - [Open iBranch on invoice page](#open-ibranch-on-invoice-page)
+    - [Open iBranch on application page](#open-ibranch-on-application-page)
     - [PayLater API](#paylater-api)
       - [Open PayLater in app](#open-paylater-in-app)
     - [Invoice API](#invoice-api)
       - [Get invoice](#get-invoice)
       - [Subscribe to invoices load event](#subscribe-to-invoices-load-event)
       - [Subscribe to invoices change event](#subscribe-to-invoices-change-event)
-    - [Hiding iTab](#hiding-itab)
-      - [Showing iTab after hidden](#showing-itab-after-hidden)
+    - [Hiding iBranch](#hiding-ibranch)
+      - [Showing iBranch after hidden](#showing-ibranch-after-hidden)
     - [Move to Production](#move-to-production)
 
 
-## iTab Guide
+## iBranch Guide
 
 ### Installation
 
-Getting set up is very simple. To begin, include the IIFE bundle directly into the html page(s) you'd like to install the iTab.
+Getting set up is very simple. To begin, include the IIFE bundle directly into the html page(s) you'd like to install the iBranch.
 
 #### Include IIFE bundle in index.html
 
 ```html
-<script src="https://static.golendica.com/itab.js"></script>
+<script src="https://static.golendica.com/iBranch.js"></script>
 ```
 
 ### Initialization
 
-Renders iTab to the screen.
+Renders iBranch to the screen.
 
 ```javascript
 lendica.init({
@@ -47,17 +48,25 @@ lendica.init({
     environment: 'SANDBOX' // Default environment is sandbox if not specified, currently supporting 'SANDBOX' or 'PRODUCTION'
 });
 ```
-### Open iTab
+### Open iBranch
 
 ```javascript
 lendica.open();
 ```
 
-### Open iTab on invoice page
+### Open iBranch on invoice page
 
 ```javascript
 lendica.open(invoiceId);  // invoiceId: unique identifier of the invoice in partner system
 ```
+
+### Open iBranch on application page
+
+```javascript
+lendica.apply()
+```
+
+Opens application flow in iBranch.
 
 
 ### PayLater API
@@ -76,7 +85,6 @@ let url = `{LENDICA_BACKEND_URL}/api/v1/pod/paylater/partner_paylater_redirect/?
 
 Passed in url is url of in app popup window that will be opened.
 Passed onComplete callback will be called when popup is closed.
-
 
 ### Invoice API
 
@@ -120,20 +128,20 @@ lendica.invoices.onChange(() => {});
 Passed callback is going to be called when there was any change to invoices during page lifecycle. Subscription is not called for initial load of invoices.
 Returns callback to dispose subscription.
 
-### Hiding iTab
+### Hiding iBranch
 
-To allow a customer to hide the iTab from your web application you may call the destroy method. This will remove all DOM nodes associated with the iTab and clear memory.
+To allow a customer to hide the iBranch from your web application you may call the destroy method. This will remove all DOM nodes associated with the iBranch and clear memory.
 
 ```javascript
 lendica.destroy();
 ```
 
-#### Showing iTab after hidden
+#### Showing iBranch after hidden
 
-To allow the customer to unhide the iTab, you may simply call the init function again with the parameters discussed above.
+To allow the customer to unhide the iBranch, you may simply call the init function again with the parameters discussed above.
 
-Call `lendica.init` with credentials and config again to re-initialize the iTab
+Call `lendica.init` with credentials and config again to re-initialize the iBranch
 
 ### Move to Production
 
-Once the testing is done and you are ready for production, please specify "PRODUCTION" in the "environment" variable. The iTab script will automatically call routes in production environment.
+Once the testing is done and you are ready for production, please specify "PRODUCTION" in the "environment" variable. The iBranch script will automatically call routes in production environment.
