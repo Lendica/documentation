@@ -9,11 +9,9 @@
 
 # Frontend Integration
 
----
 
 ## Use iBranch and PayLater API
 
----
 
 ### Installing iBranch
 
@@ -62,7 +60,6 @@ Parameters
 
 ## Using the Lendica PayLater button
 
----
 [![npm version](https://img.shields.io/badge/npm-v1.0.0-8c8ca1)](https://www.npmjs.com/package/@lendica/paylaterbutton) <img src="https://lendica-public.s3.amazonaws.com/assets/paylater_btn_light.png" height=36>
 
 ```sh
@@ -81,17 +78,14 @@ See complete documentation [here](https://github.com/Lendica/paylater-button)
 
 # Backend Integration
 
----
 
 ## Buyer PayLater Application link
 
----
 
 ```bash
 {BACKEND_URL}/api/v1/pod/paylater/partner_paylater_redirect/?partner={PARTNER_NAME}&invoice_id={INVOICE_UUID}
 ```
 
----
 
 - BACKEND_URL
     - This is the backend Lendica environment
@@ -111,7 +105,6 @@ See complete documentation [here](https://github.com/Lendica/paylater-button)
 
 ### Endpoint
 
----
 
 ### POST `{{backend_url}}/api/v1/pod/approval_status`
 
@@ -120,7 +113,6 @@ See complete documentation [here](https://github.com/Lendica/paylater-button)
 - {’`partner_company_uuid`’: `str`}
     - Pass in Mainstem’s unique identifier for the company
 
----
 
 `backend_url` is either:
 
@@ -132,7 +124,6 @@ See complete documentation [here](https://github.com/Lendica/paylater-button)
 
 ## Responses
 
----
 
 ### Case 1 - Inactive
 
@@ -270,11 +261,9 @@ A company has submitted an application, but has been rejected. The response will
 
 ## Approval Summary Callback Route
 
----
 
 ## Endpoint
 
----
 
 ### POST `{{backend_url}}/api/v1/pod/approval_status`
 
