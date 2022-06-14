@@ -272,7 +272,6 @@ A company has submitted an application, but has been rejected. The response will
 - {’`partner_company_uuid`’: `str`}
     - Pass in Mainstem’s unique identifier for the company
 
----
 
 `backend_url` is either:
 
@@ -284,7 +283,6 @@ A company has submitted an application, but has been rejected. The response will
 
 ## Responses
 
----
 
 ## Case 1 - Inactive
 
