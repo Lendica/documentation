@@ -1,11 +1,23 @@
 # Lendica iBranch Application and PayLater-in-App
 
+- [Lendica iBranch Application and PayLater-in-App](#lendica-ibranch-application-and-paylater-in-app)
 - [Frontend Integration](#frontend-integration)
-  - [iBranch and PayLater API](#use-ibranch-and-paylater-api)
-  - [Lendica PayLater button](#use-the-lendica-paylater-button)
+  - [Use iBranch and PayLater API](#use-ibranch-and-paylater-api)
+    - [Installing iBranch](#installing-ibranch)
+    - [Initialize Lendica](#initialize-lendica)
+    - [Open iBranch on application page](#open-ibranch-on-application-page)
+    - [Open PayLater in app](#open-paylater-in-app)
+  - [Using the Lendica PayLater button](#using-the-lendica-paylater-button)
 - [Backend Integration](#backend-integration)
-  - [Buyer PayLater application link](#buyer-paylater-application-link)
-  - [Approval summary callback route](#approval-summary-callback-route)
+  - [Buyer PayLater Application link](#buyer-paylater-application-link)
+  - [Approval Summary Callback Route](#approval-summary-callback-route)
+    - [Endpoint](#endpoint)
+      - [POST `{{backend_url}}/api/v1/pod/approval_status`](#post-backend_urlapiv1podapproval_status)
+    - [Responses](#responses)
+  - [Approval Summary Callback Route](#approval-summary-callback-route-1)
+    - [Endpoint](#endpoint-1)
+      - [POST `{{backend_url}}/api/v1/pod/approval_status`](#post-backend_urlapiv1podapproval_status-1)
+    - [Responses](#responses-1)
 
 # Frontend Integration
 
@@ -125,7 +137,7 @@ See complete documentation [here](https://github.com/Lendica/paylater-button)
 ### Responses
 
 
-#### Case 1 - Inactive
+> #### Case 1 - Inactive
 
 A company has not yet been initialized into the lendica system. The response will only return the `partner_company_uuid` provided in the request, and an approval status of `inactive`.
 
@@ -149,7 +161,7 @@ A company has not yet been initialized into the lendica system. The response wil
 }
 ```
 
-#### Case 2 - Pending
+> #### Case 2 - Pending
 
 A company has submitted a PayLater application. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `pending`.
 
@@ -173,7 +185,7 @@ A company has submitted a PayLater application. The response will return the com
 }
 ```
 
-#### Case 3 - Approved, pending approval of deal
+> #### Case 3 - Approved, pending approval of deal
 
 A company has submitted a PayLater application and has been approved for a PayLater line. The company has also confirmed terms for an invoice, and a deal has been initialized in the Lendica system. Lendica will quickly process the deal, but until it is approved, the status of the deal will be `pending`. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `approved`. Now, approval details also include the live credit balance and details for the customer’s PayLater line.
 
@@ -203,7 +215,7 @@ A company has submitted a PayLater application and has been approved for a PayLa
 }
 ```
 
-#### Case 4 - Approved, Deal approved
+> #### Case 4 - Approved, Deal approved
 
 A company has submitted a PayLater application and has been approved for a PayLater line. The status of the deal is now `approved`. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `approved`. Approval details also include the live credit balance and details for the customer’s PayLater line. 
 
@@ -235,7 +247,7 @@ Note that deals is a list, and will include all active PayLater deals activated 
 }
 ```
 
-#### Case 5 - Rejected
+> #### Case 5 - Rejected
 
 A company has submitted an application, but has been rejected. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `rejected`.
 
@@ -284,7 +296,7 @@ A company has submitted an application, but has been rejected. The response will
 ### Responses
 
 
-#### Case 1 - Inactive
+> #### Case 1 - Inactive
 
 A company has not yet been initialized into the lendica system. The response will only return the `partner_company_uuid` provided in the request, and an approval status of `inactive`.
 
@@ -308,7 +320,7 @@ A company has not yet been initialized into the lendica system. The response wil
 }
 ```
 
-#### Case 2 - Pending
+> #### Case 2 - Pending
 
 A company has submitted a PayLater application. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `pending`.
 
@@ -332,7 +344,7 @@ A company has submitted a PayLater application. The response will return the com
 }
 ```
 
-#### Case 3 - Approved, pending approval of deal
+> #### Case 3 - Approved, pending approval of deal
 
 A company has submitted a PayLater application and has been approved for a PayLater line. The company has also confirmed terms for an invoice, and a deal has been initialized in the Lendica system. Lendica will quickly process the deal, but until it is approved, the status of the deal will be `pending`. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `approved`. Now, approval details also include the live credit balance and details for the customer’s PayLater line.
 
@@ -362,7 +374,7 @@ A company has submitted a PayLater application and has been approved for a PayLa
 }
 ```
 
-#### Case 4 - Approved, Deal approved
+> #### Case 4 - Approved, Deal approved
 
 A company has submitted a PayLater application and has been approved for a PayLater line. The status of the deal is now `approved`. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `approved`. Approval details also include the live credit balance and details for the customer’s PayLater line. 
 
@@ -394,7 +406,7 @@ Note that deals is a list, and will include all active PayLater deals activated 
 }
 ```
 
-#### Case 5 - Rejected
+> #### Case 5 - Rejected
 
 A company has submitted an application, but has been rejected. The response will return the company name, Lendica company ID, and partner company ID, and an approval status of `rejected`.
 
