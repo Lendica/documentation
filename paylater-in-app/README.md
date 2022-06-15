@@ -30,7 +30,7 @@
 Include IIFE bundle in index.html
 
 ```jsx
-<script src="https://static.golendica.com/iBranch.js"></script>
+<script src="https://static.golendica.com/itab.js"></script>
 ```
 
 ### Initialize Lendica
@@ -56,8 +56,13 @@ The lendica instance will be ready in the window object once initialized.
 ### Open iBranch on application page
 
 ```jsx
-lendica.apply();
+/**
+ * @callback [onComplete] - Optional callback function after application is completed.
+ */
+lendica.apply(onComplete);
 ```
+
+onComplete: optional function to be called when application process is finished.
 
 ### Open PayLater in app
 

@@ -28,7 +28,7 @@ Getting set up is very simple. To begin, include the IIFE bundle directly into t
 #### Include IIFE bundle in index.html
 
 ```html
-<script src="https://static.golendica.com/iBranch.js"></script>
+<script src="https://static.golendica.com/itab.js"></script>
 ```
 
 ### Initialization
@@ -63,10 +63,15 @@ lendica.open(invoiceId);  // invoiceId: unique identifier of the invoice in part
 ### Open iBranch on application page
 
 ```javascript
-lendica.apply()
+/**
+ * @callback [onComplete] - Optional callback function after application is completed.
+ */
+lendica.apply(onComplete);
 ```
-
 Opens application flow in iBranch.
+
+
+onComplete - optional function to be called when application process is finished.
 
 
 ### PayLater API
